@@ -14,6 +14,9 @@ class Game {
     this.imgLoad()
     this.pipeArr = [];
     this.bindEvent()
+    this.frame = 0;
+    // 统计分数
+    this.score = 0;
   }
   // 用来清屏的
   clear () {
@@ -21,7 +24,6 @@ class Game {
     this.draw.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
   start () {
-    let frame = 0;
     // 创建背景实例
     this.bg = new Background();
     // 创建大地
@@ -31,18 +33,15 @@ class Game {
 
     // 保证所有图片加载完成后才加载start
     this.timer = setInterval(() => {
-      frame++;
+      this.frame++;
       // 清屏 每一帧都要清除上一帧的内容
       // this.clear()
 
       // 首先就是背景上场，每一秒都更新渲染
       this.bg.update(); // 更新
       this.bg.render(); // 渲染
-      // this.land.update();
-      // this.land.render();
 
-      if (frame % 200 == 0) {
-        // 200
+      if (this.frame % 200 == 0) {
         new Pipe()
       }
       this.pipeArr.forEach(item => {
@@ -78,7 +77,7 @@ class Game {
   }
   bindEvent () {
     this.canvas.onclick = ()=> {
-      console.log(this.bird)
+      // console.log(this.bird)
       this.bird.fly()
     }
   }

@@ -23,6 +23,12 @@ class Bird {
       this.y -= this.changeY;
       this.y <= 0 ? this.y = 0:null;
     }
+    // 记录小鸟每时每刻的值
+    this.x1 = this.x - 19; // this.w / 2
+    this.x2 = this.x + 19;
+    this.y1 = this.y - 14;
+    this.y2 = this.y + 14;
+
     if (this.y > game.canvas.height - 80) {
       this.y = game.canvas.height - 80;
     }
