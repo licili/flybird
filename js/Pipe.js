@@ -47,8 +47,9 @@ class Pipe {
     
     // 碰撞检测
     if (game.bird.x2 >= this.x1 && game.bird.x1 <= this.x2 && (game.bird.y1 <= this.y1 || game.bird.y2 >= this.y2)) {
-      console.log(game.bird.y1,game.bird.y2)
-      clearInterval(game.timer)
+      // clearInterval(game.timer)
+      game.SM.enter(3);
+      
     }
     // 加分
     if (game.bird.x1 > this.x2 && !this.isPass) {
