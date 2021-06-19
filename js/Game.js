@@ -36,7 +36,7 @@ class Game {
     // this.bird = new Bird();
 
     this.SM = new SceneManager();
-    this.SM.enter(1)
+    this.SM.enter(0)
     // 保证所有图片加载完成后才加载start
     this.timer = setInterval(() => {
       this.frame++;
